@@ -1,0 +1,32 @@
+|g1 g2 ar1 ar2 tienda|
+g1:= Garantia new. 
+g1 duracion:1.
+g1 determinarIncremento. "10"
+
+g2:=Garantia new.
+g2 duracion:12.
+g2 determinarIncremento. "25"
+
+ar1:=Articulo new.
+ar1 descripción: 'teclado';costo:50;porcGanancia:20;stock:10;garantia:g2.
+ar1 ganancia. "10"
+ar1 precioFinal. "75"
+
+ar1 garantia:g1.
+ar1 precioFinal. "66"
+ar1 stock. "10"
+ar1 capital. "660"
+
+
+ar2:= Articulo new.
+ar2 descripción: 'mouse';costo:30;porcGanancia:50;stock:20;garantia:g1.
+ar2 ganancia.   
+ar2 precioFinal asFloat. "49.5"
+ar2 capital. "990"
+
+
+tienda:=Tienda new.
+tienda addArticulo:ar1;addArticulo:ar2.
+tienda cantidad. "2"
+
+tienda capitalTotal. "1740" (verifical validacion, no me da el resultado).

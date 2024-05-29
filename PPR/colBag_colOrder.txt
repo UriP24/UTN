@@ -1,0 +1,35 @@
+|colBag colOrd suma sumaCuadrados res subCol|
+
+colBag:=Bag new.
+colBag add:3;add:5;add:9;add:1;add:7.
+colBag asString. "'a Bag(7 1 9 3 5)'"
+
+colOrd:= OrderedCollection new.
+colOrd add:3;add:5;add:9;add:1;add:7.
+colOrd asString.  "'an OrderedCollection(3 5 9 1 7)'"
+
+Transcript open.
+Transcript clear.
+suma:=0.
+colOrd do:[:x | suma:= suma + x.
+					Transcript show:suma;cr].
+suma. "25"
+
+sumaCuadrados:= 0.
+colOrd do:[:x | sumaCuadrados:= sumaCuadrados + (x * x).
+					Transcript show:sumaCuadrados;cr].
+sumaCuadrados.
+
+"Obtener ell primer objeto mayor que 6"
+res:= colOrd detect:[:x | x>6 ]ifNone:[nill]. "recorre cada vez que la respuesta sea false"
+res. "9"
+
+res:=colOrd detect:[:x | x>10] ifNone:[nill].
+res. "nill" 
+
+"obtener una subcoleccion con todos los objetos mayores que 6"
+subCol:= colOrd select:[:x | x>6].
+subCol. "an OrderedCollection(9 7)"
+
+subCol:= colOrd select:[:x | x>10].
+subCol. "an OrderedCollection()"
